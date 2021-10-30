@@ -2,16 +2,16 @@ import FeaturedBox from "../featuredBox/featuredBox";
 
 function FeaturedBoxList() {
   return (
-    <div class="featured-boxes">
-      <div class="featured-boxes__container container">
-        <div class="featured-boxes__title-wrapper">
-          <h3 class="featured-boxes__title section-heading">What You Get with Open Library?</h3>
-          <p class="featured-boxes__description">
+    <div className="featured-boxes">
+      <div className="featured-boxes__container container">
+        <div className="featured-boxes__title-wrapper">
+          <h3 className="featured-boxes__title section-heading">What You Get with Open Library?</h3>
+          <p className="featured-boxes__description">
             Best-Selling &amp; Most Trusted HTML5 Template. Experience the Ever-Growing Feature Rich Template since
             2014.
           </p>
 
-          <div class="featured-box-list">
+          <div className="featured-box-list">
             <FeaturedBox />
             <FeaturedBox />
             <FeaturedBox />

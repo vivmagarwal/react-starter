@@ -1,8 +1,8 @@
 function SectionHeading() {
   return (
-    <div class="section-heading-block">
-      <div class="section-heading-block__container container">
-        <h3 class="section-heading">Category Name here</h3>
+    <div className="section-heading-block">
+      <div className="section-heading-block__container container">
+        <h3 className="section-heading">Category Name here</h3>
       </div>
     </div>
   )

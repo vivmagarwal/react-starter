@@ -2,8 +2,8 @@ import FeaturedDataItem from "../featuredDataItem/featuredDataItem";
 
 function FeaturedDataList() {
   return (
-    <div class="featured-data">
-      <div class="featured-data__container container">
+    <div className="featured-data">
+      <div className="featured-data__container container">
         <FeaturedDataItem />
         <FeaturedDataItem />
         <FeaturedDataItem />

@@ -1,9 +1,13 @@
+import { useContext } from "react";
+import SidebarVisibilityContext from "../../store/sidebarVisibilityContext";
+
 function Sidebar() {
+  const [sidebarVisibility,, toggleSidebarVisibility] = useContext(SidebarVisibilityContext);
+
   return (
     <>
-      <div class="overlay sidebar-overlay" id="sidebar-overlay"></div>
-      <div id="sidebar" class="sidebar">
-        <a href="javascript:void(0)" class="hamburger hamburger--light hamburger--cross sidebar__toggle-sidebar">
+      <div id="sidebar" className={`sidebar ${sidebarVisibility ? 'active' : ''}`}>
+        <a onClick={toggleSidebarVisibility} className="hamburger hamburger--light hamburger--cross sidebar__toggle-sidebar">
           <span></span>
           <span></span>
           <span></span>

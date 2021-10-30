@@ -2,8 +2,8 @@ import Card from "../card/card";
 
 function CardList() {
   return (
-    <div class="container card-list-wrapper">
-      <div class="card-list">
+    <div className="container card-list-wrapper">
+      <div className="card-list">
         <Card />
         <Card />
         <Card />
