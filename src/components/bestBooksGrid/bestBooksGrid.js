@@ -27,7 +27,7 @@ function BestBooksGrid() {
         </div>
 
         <div className="best-books-grid__cta">
-          <a href="#" className="hero__btn btn btn--large btn--white">
+          <a href="https://google.com" className="hero__btn btn btn--large btn--white">
             Read free for 30 days
           </a>
           <div className="hero__under-btn under-btn">

@@ -7,11 +7,11 @@ function Sidebar() {
   return (
     <>
       <div id="sidebar" className={`sidebar ${sidebarVisibility ? 'active' : ''}`}>
-        <a onClick={toggleSidebarVisibility} className="hamburger hamburger--light hamburger--cross sidebar__toggle-sidebar">
+        <button onClick={toggleSidebarVisibility} className="btn--clear hamburger hamburger--light hamburger--cross sidebar__toggle-sidebar">
           <span></span>
           <span></span>
           <span></span>
-        </a>
+        </button>
 
         <ul>
           <li>home</li>
