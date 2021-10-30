@@ -1,3 +1,4 @@
+import Backdrop from "./components/backdrop/backdrop";
 import BestBooksGrid from "./components/bestBooksGrid/bestBooksGrid";
 import BookDetail from "./components/bookDetail/bookDetail";
 import CardList from "./components/cardList/cardList";
@@ -10,13 +11,17 @@ import Header from "./components/header/header";
 import Hero from "./components/hero/hero";
 import SectionHeading from "./components/sectionHeading/sectionHeading";
 import Sidebar from "./components/sidebar/sidebar";
+import { SidebarVisibilityContextProvider } from "./store/sidebarVisibilityContext";
+
 
 function App() {
   return (
     <div className="App">
-      Hello World!
-      <Header />
-      <Sidebar />
+      <SidebarVisibilityContextProvider>
+        <Header />
+        <Backdrop />
+        <Sidebar />
+      </SidebarVisibilityContextProvider>
       <Hero />
       <FeaturedBoxList />
       <FeaturedTestimonial />

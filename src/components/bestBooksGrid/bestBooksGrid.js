@@ -2,13 +2,13 @@ import BestBookGridItem from "../bestBookGridItem/bestBookGridItem";
 
 function BestBooksGrid() {
   return (
-    <div class="best-books-grid">
-      <div class="best-books-grid__container container">
-        <div class="best-books-grid__title">
-          <h3 class="section-heading">Bestselling Books and Audiobooks</h3>
+    <div className="best-books-grid">
+      <div className="best-books-grid__container container">
+        <div className="best-books-grid__title">
+          <h3 className="section-heading">Bestselling Books and Audiobooks</h3>
         </div>
-        <div class="best-books-grid__content">
-          <ul class="best-books-grid__grid">
+        <div className="best-books-grid__content">
+          <ul className="best-books-grid__grid">
 
             <BestBookGridItem />
             <BestBookGridItem />
@@ -26,11 +26,11 @@ function BestBooksGrid() {
           </ul>
         </div>
 
-        <div class="best-books-grid__cta">
-          <a href="#" class="hero__btn btn btn--large btn--white">
+        <div className="best-books-grid__cta">
+          <a href="#" className="hero__btn btn btn--large btn--white">
             Read free for 30 days
           </a>
-          <div class="hero__under-btn under-btn">
+          <div className="hero__under-btn under-btn">
             Only ₹299/month after. Cancel anytime.
           </div>
         </div>

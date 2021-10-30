@@ -147,6 +147,10 @@ hr.rule {
   border: 1px solid #1e7b85;
 }
 
+.hamburger {
+  cursor: pointer;
+}
+
 .hamburger span {
   width: 18px;
   height: 2px;
