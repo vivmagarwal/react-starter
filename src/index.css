@@ -147,6 +147,11 @@ hr.rule {
   border: 1px solid #1e7b85;
 }
 
+.btn--clear {
+  background: none;
+  border: none;
+}
+
 .hamburger {
   cursor: pointer;
 }

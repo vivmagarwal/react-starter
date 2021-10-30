@@ -11,9 +11,9 @@ function Hero() {
           Read or listen anytime, anywhere.
         </div>
 
-        <a href="#" className="hero__btn btn btn--large btn--white">
+        <button className="hero__btn btn btn--large btn--white">
           Read free for 30 days
-        </a>
+        </button>
 
         <div className="hero__under-btn under-btn">
           Only ₹299/month after. Cancel anytime.

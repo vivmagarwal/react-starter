@@ -5,12 +5,13 @@ function BookDetail() {
         <div className="book-detail__left">
           <img
             className="book-detail__img"
+            alt="my good book"
             src="https://imgv2-1-f.scribdassets.com/img/audiobook_square_badge/510417754/396x396/e1986f8af6/1632395555?v=1"
           />
         </div>
         <div className="book-detail__right">
-          <h1 className="book-detail__title"><a href="#">The Afganisthan Papers: A secret history of the war</a></h1>
-          <div className="book-detail__author">Written by <a href="#">Author Name</a></div>
+          <h1 className="book-detail__title"><a href="https://google.com">The Afganisthan Papers: A secret history of the war</a></h1>
+          <div className="book-detail__author">Written by <a href="https://google.com">Author Name</a></div>
 
           <hr className="rule" />
 
@@ -20,22 +21,22 @@ function BookDetail() {
 
           <div className ="book-detail__pill-list">
           <ul className ="pill-list">
-          <li className ="pill-list__item"><a href="#">Business</a></li>
-          <li className ="pill-list__item"><a href="#">Personal memories</a></li>
-          <li className ="pill-list__item"><a href="#">Asia</a></li>
-          <li className ="pill-list__item"><a href="#">Business</a></li>
-          <li className ="pill-list__item"><a href="#">Business</a></li>
-          <li className ="pill-list__item"><a href="#">Business</a></li>
-          <li className ="pill-list__item"><a href="#">Business</a></li>
+          <li className ="pill-list__item"><a href="https://google.com">Business</a></li>
+          <li className ="pill-list__item"><a href="https://google.com">Personal memories</a></li>
+          <li className ="pill-list__item"><a href="https://google.com">Asia</a></li>
+          <li className ="pill-list__item"><a href="https://google.com">Business</a></li>
+          <li className ="pill-list__item"><a href="https://google.com">Business</a></li>
+          <li className ="pill-list__item"><a href="https://google.com">Business</a></li>
+          <li className ="pill-list__item"><a href="https://google.com">Business</a></li>
           </ul>
           </div>
 
           <div className ="book-detail__product-metadata">
           <ul className ="product-metadata">
-          <li className ="product-metadata__item"><span>Publisher: </span><a href="#">Business</a></li>
-          <li className ="product-metadata__item"><span>Released: </span><a href="#">Personal memories</a></li>
-          <li className ="product-metadata__item"><span>ISBN: </span><a href="#">Asia</a></li>
-          <li className ="product-metadata__item"><span>Format: </span><a href="#">Business</a></li>
+          <li className ="product-metadata__item"><span>Publisher: </span><a href="https://google.com">Business</a></li>
+          <li className ="product-metadata__item"><span>Released: </span><a href="https://google.com">Personal memories</a></li>
+          <li className ="product-metadata__item"><span>ISBN: </span><a href="https://google.com">Asia</a></li>
+          <li className ="product-metadata__item"><span>Format: </span><a href="https://google.com">Business</a></li>
           </ul>
           </div>
 
