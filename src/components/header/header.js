@@ -3,12 +3,12 @@ import SidebarVisibilityContext from "../../store/sidebarVisibilityContext";
 import Button from "../button/button";
 
 function Header() {
-  const [, , toggleSidebarVisibility] = useContext(SidebarVisibilityContext);
+  const [,,toggleSidebarVisibility] = useContext(SidebarVisibilityContext);
   return (
     <>
       <header className="site-header" id="site-header">
         <div className="container">
-          
+
           <Button onClick={toggleSidebarVisibility} className="btn--clear hamburger hamburger--light site-header__toggle-sidebar">
             <span></span>
             <span></span>
