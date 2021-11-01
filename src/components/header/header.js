@@ -3,7 +3,7 @@ import SidebarVisibilityContext from "../../store/sidebarVisibilityContext";
 import Button from "../button/button";
 
 function Header() {
-  const [,,toggleSidebarVisibility] = useContext(SidebarVisibilityContext);
+  const [,, toggleSidebarVisibility] = useContext(SidebarVisibilityContext);
   return (
     <>
       <header className="site-header" id="site-header">

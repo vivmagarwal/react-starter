@@ -1,33 +1,25 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../card/card";
 
-function CardList({ cards }) {
-  // const [loadedBooks, setLoadedBooks] = useState([]);
+function CardList() {
+  const [bookList, setBookList] = useState([]);
 
-  // useEffect(() => {
-  //   fetch('https://openlibrary.org/authors/OL34184A/works.json?limit=10')
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       const books = [];
-
-  //       data.entries.map((book) => {
-  //         console.log('title ', book?.title);
-  //         console.log('description ', book?.description?.value?.substring(0, 50) + '...');
-  //         console.log( 'author ', book?.authors[0]?.author?.key);
-  //       })
-
-  //       console.log(data);
-  //     })
-  // },[])
+  useEffect(() => {
+    fetch('https://iifsd.herokuapp.com/books')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setBookList(data);
+      })
+  },[])
 
 
   return (
     <div className="container card-list-wrapper">
       <div className="card-list">
-        {cards.map((cardItem) => (
-          <Card key={cardItem.id} {...cardItem} />
+        {bookList.map((book) => (
+          <Card key={book.id} title={book.book_title} image={  book.cover_url } description={ book.book_short_description } authorName={ book.authors[0].author_name } authorURL= 'https://google.com' />
         ))}
       </div>
     </div>
