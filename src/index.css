@@ -229,9 +229,17 @@ hr.rule {
 
 .sidebar ul li {
   list-style: none;
+  padding: 20px 24px;
+}
+
+.sidebar ul li a {
   color: white;
   font-size: 20px;
-  padding: 20px 24px;
+  text-decoration: none;
+}
+.sidebar ul li a.active {
+  color: white;
+  text-decoration: underline;
 }
 
 .sidebar__toggle-sidebar {

@@ -11,32 +11,35 @@ import Header from "./components/header/header";
 import Hero from "./components/hero/hero";
 import SectionHeading from "./components/sectionHeading/sectionHeading";
 import Sidebar from "./components/sidebar/sidebar";
+import Home from "./pages/home";
 import { SidebarVisibilityContextProvider } from "./store/sidebarVisibilityContext";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Detail from "./pages/detail";
+import List from "./pages/list";
+import Create from "./pages/create";
 
-const heroData = {
-  title: "Endless entertainment and knowledge",
-  subtitle: "Read or listen anytime, anywhere.",
-  ctaText: "Read free for 90 days",
-  ctaSubText: "Only ₹299/month after. Cancel anytime."
-}
 
 function App() {
   return (
-    <div className="App">
-      <SidebarVisibilityContextProvider>
-        <Header />
-        <Backdrop />
-        <Sidebar />
-      </SidebarVisibilityContextProvider>
-      <Hero {...heroData} />
-      <FeaturedBoxList />
-      <FeaturedTestimonial />
-      <BestBooksGrid />
-      <FeaturedDataList />
-      <SectionHeading />
-      <CardList />
-      <SectionHeading />
-      <BookDetail />
+    <div className="page">
+      <Router>
+        <SidebarVisibilityContextProvider>
+          <Header />
+          <Backdrop />
+          <Sidebar />
+        </SidebarVisibilityContextProvider>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/book" component={Detail} />
+          <Route path="/list" component={List} />
+          <Route path="/create" component={Create} />
+        </Switch>
+      </Router>
       <FooterPrimary />
       <FooterSecondary />
     </div>

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import SidebarVisibilityContext from "../../store/sidebarVisibilityContext";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   const [sidebarVisibility,, toggleSidebarVisibility] = useContext(SidebarVisibilityContext);
@@ -13,12 +14,23 @@ function Sidebar() {
           <span></span>
         </button>
 
-        <ul>
-          <li>home</li>
-          <li>work</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/" exact>Home</Link>
+            </li>
+            <li>
+              <Link to="/list">List</Link>
+            </li>
+            <li>
+              <Link to="/book">Book</Link>
+            </li>
+            <li>
+              <Link to="/create">Create</Link>
+            </li>
+          </ul>
+        </nav>
+
       </div>
     </>
   )
