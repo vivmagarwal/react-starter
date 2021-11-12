@@ -11,6 +11,7 @@ function BestBooksGrid() {
           <ul className="best-books-grid__grid">
 
             <BestBookGridItem />
+            {/* <BestBookGridItem />
             <BestBookGridItem />
             <BestBookGridItem />
             <BestBookGridItem />
@@ -20,8 +21,7 @@ function BestBooksGrid() {
             <BestBookGridItem />
             <BestBookGridItem />
             <BestBookGridItem />
-            <BestBookGridItem />
-            <BestBookGridItem />
+            <BestBookGridItem /> */}
 
           </ul>
         </div>

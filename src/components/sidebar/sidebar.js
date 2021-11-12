@@ -17,7 +17,7 @@ function Sidebar() {
         <nav>
           <ul>
             <li>
-              <Link to="/" exact>Home</Link>
+              <Link to="/" >Home</Link>
             </li>
             <li>
               <Link to="/list">List</Link>
