@@ -26,7 +26,8 @@ function App() {
         </SidebarVisibilityContextProvider>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/book" component={Detail} />
+          <Route path="/book" exact component={Detail} />
+          <Route path="/book/:id" exact component={Detail} />
           <Route path="/list" component={List} />
           <Route path="/create" component={Create} />
         </Switch>

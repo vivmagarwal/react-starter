@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import SidebarVisibilityContext from "../../store/sidebarVisibilityContext";
 import Button from "../button/button";
 
@@ -15,9 +16,9 @@ function Header() {
             <span></span>
           </Button>
 
-          <a href="https://google.com" className="site-header__logo">
+          <Link to="/" className="site-header__logo">
             <img className="site-header__logo-image" alt="Open library logo" src="https://i.ibb.co/7g0zZ94/open-library-logo.png" />
-          </a>
+          </Link>
           <button className="btn btn--hollow site-header__signin">Sign In</button>
         </div>
       </header>

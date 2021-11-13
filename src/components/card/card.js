@@ -1,7 +1,10 @@
-function Card({ title, image, description, authorName, authorURL }) {
+import { Link } from "react-router-dom";
+
+function Card({ id, title, image, description, authorName, authorURL }) {
   return (
     <div className="card">
-      <a href="https://google.com" className="card__title">{title}</a>
+
+      <Link className="card__title" to={`/book/${id}`}>{title}</Link>
 
       <img
         className="card__img"
