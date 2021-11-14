@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import SidebarVisibilityContext from "../../store/sidebarVisibilityContext";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../store/userContext";
 
 function Sidebar() {
   const [sidebarVisibility,, toggleSidebarVisibility] = useContext(SidebarVisibilityContext);
+  const { user } = useContext(UserContext);
 
   return (
     <>
@@ -16,18 +18,12 @@ function Sidebar() {
 
         <nav>
           <ul>
-            <li>
-              <Link to="/" >Home</Link>
-            </li>
-            <li>
-              <Link to="/list">List</Link>
-            </li>
-            <li>
-              <Link to="/book">Book</Link>
-            </li>
-            <li>
-              <Link to="/create">Create</Link>
-            </li>
+            <li> <Link to="/" >Home</Link> </li>
+            <li> <Link to="/list">List</Link> </li>
+            <li> <Link to="/book">Book</Link> </li>
+            {user && 
+              <li> <Link to="/create">Create A Book</Link> </li>
+            }
           </ul>
         </nav>
 

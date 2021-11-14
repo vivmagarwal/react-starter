@@ -1,10 +1,17 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import SidebarVisibilityContext from "../../store/sidebarVisibilityContext";
+import { UserContext } from "../../store/userContext";
 import Button from "../button/button";
 
 function Header() {
   const [,, toggleSidebarVisibility] = useContext(SidebarVisibilityContext);
+  const { user, setUser } = useContext(UserContext);
+
+  const logoutHandler = () => {
+    setUser(null);
+  } 
+
   return (
     <>
       <header className="site-header" id="site-header">
@@ -19,7 +26,21 @@ function Header() {
           <Link to="/" className="site-header__logo">
             <img className="site-header__logo-image" alt="Open library logo" src="https://i.ibb.co/7g0zZ94/open-library-logo.png" />
           </Link>
-          <button className="btn btn--hollow site-header__signin">Sign In</button>
+
+          <div className='site-header__user-info'>
+            {!user &&
+              <>  
+                <Link to="/login" className="btn btn--hollow site-header__signin">Log In</Link>
+                <Link to="/signup" className="btn btn--hollow site-header__signin">Sign Up</Link>
+              </>
+            }
+            { user &&
+              <>
+              <span> Hi, {user.user.username} </span>
+              <button className="btn btn--hollow site-header__signin" onClick={ logoutHandler } >Log out</button>
+              </>
+            }
+            </div>
         </div>
       </header>
     </>

@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from '../store/userContext';
 
 function Create() {
   const [bookTitle, setBookTitle] = useState('');
   const [favSubject, setFavSubject] = useState('Javascript');
   const [err, setError] = useState('');
+  const { user, setUser } = useContext(UserContext);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -47,6 +49,9 @@ function Create() {
     <div className="page__create">
       
       ERR:{err && <p className="msg msg--error">{err.toString()}</p>}
+      <br />
+      USER: <p>{JSON.stringify(user)}</p>
+      
 
       <h1>Create a Book</h1>
       <form onSubmit={handleSubmit}>

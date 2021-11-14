@@ -13,11 +13,15 @@ import {
 import Detail from "./pages/detail";
 import List from "./pages/list";
 import Create from "./pages/create";
+import UserContextProvider from "./store/userContext";
+import Login from "./pages/login";
+import Signup from "./pages/signup";
 
 
 function App() {
   return (
     <div className="page">
+      <UserContextProvider>
       <Router>
         <SidebarVisibilityContextProvider>
           <Header />
@@ -25,15 +29,18 @@ function App() {
           <Sidebar />
         </SidebarVisibilityContextProvider>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/book" exact component={Detail} />
-          <Route path="/book/:id" exact component={Detail} />
-          <Route path="/list" component={List} />
-          <Route path="/create" component={Create} />
+          <Route path="/" exact component={ Home } />
+          <Route path="/book" exact component={ Detail } />
+          <Route path="/book/:id" exact component={ Detail } />
+          <Route path="/list" component={ List } />
+          <Route path="/create" component={ Create } />
+          <Route path="/login" component={ Login } />
+          <Route path="/signup" component={ Signup } />
         </Switch>
       </Router>
       <FooterPrimary />
       <FooterSecondary />
+      </UserContextProvider>
     </div>
   );
 }
