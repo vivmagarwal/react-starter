@@ -199,6 +199,7 @@ hr.rule {
 /* header */
 .site-header {
   background-color: #00293f;
+  color: #eee;
   min-height: 52px;
   display: flex;
   align-items: center;
@@ -219,7 +220,7 @@ hr.rule {
   transition: all 1s ease-in-out;
 }
 
-.site-header__signin {
+.site-header__user-info {
   margin-left: auto;
 }
 
