@@ -46,11 +46,9 @@ export default function Signup(props) {
   return (
     <div>
 
-      <h1>Login</h1>
+      <h1>Signup</h1>
       
       {error && <p className="msg msg--error">{error.toString()}</p>}
-      <br />
-      USER: <span>{JSON.stringify(user)}</span>
       
       <form onSubmit={handleSubmit}>
         <input type="email" value={email} onChange={(e) => { setError(''); setEmail(e.target.value)}} />

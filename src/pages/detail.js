@@ -4,7 +4,8 @@ import BookDetail from "../components/bookDetail/bookDetail";
 import SectionHeading from "../components/sectionHeading/sectionHeading";
 
 function Detail(props) {
-  const id = props.match.params.id;
+
+  const id = props.match.params?.id || 1;
 
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(true);

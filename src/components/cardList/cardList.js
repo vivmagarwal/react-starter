@@ -19,7 +19,7 @@ function CardList() {
     <div className="container card-list-wrapper">
       <div className="card-list">
         {bookList.length > 0 ? bookList.map((book) => (
-          <Card key={book.id} id={book.id} title={book.book_title} image={book.cover_url} description={book.book_short_description} authorName={book.authors[0].author_name} authorURL='https://google.com' />
+          <Card key={book.id} id={book.id} title={book.book_title} image={book.cover_url} description={book.book_short_description} authorName={book.authors[0]?.author_name} authorURL='https://google.com' />
         )): <h2>Data loading...........</h2>}
       </div>
     </div>

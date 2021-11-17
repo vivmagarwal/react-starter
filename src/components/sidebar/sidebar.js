@@ -20,7 +20,6 @@ function Sidebar() {
           <ul>
             <li> <Link to="/" >Home</Link> </li>
             <li> <Link to="/list">List</Link> </li>
-            <li> <Link to="/book">Book</Link> </li>
             {user && 
               <li> <Link to="/create">Create A Book</Link> </li>
             }
