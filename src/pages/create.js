@@ -1,34 +1,72 @@
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { UserContext } from '../store/userContext';
+import PageTitle from '../components/pageTitle/pageTitle';
+import Alert from '../components/alert/alert';
+import TagsMultiSelect from '../components/tagsMultiSelect/tagsMultiSelect';
+import AuthorsMultiSelect from '../components/authorsMulitSelect/authorsMultiSelect';
 
 function Create() {
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedAuthors, setSelectedAuthors] = useState([]);
+
   const [bookTitle, setBookTitle] = useState('');
-  const [favSubject, setFavSubject] = useState('Javascript');
+  const [shortDescription, setShortDescription] = useState('');
+  const [description, setDescription] = useState('');
+  const [coverURL, setCoverURL] = useState('https://www.linkpicture.com/q/book-na-1.jpg');
+
   const [err, setError] = useState('');
-  const { user, setUser } = useContext(UserContext);
+  const [successMsg, setSuccessMsg] = useState('');
+  const { user } = useContext(UserContext);
+
+  const titleInputEl = useRef();
+
+  function resetStates() {
+    setSelectedTags([]);
+    setSelectedAuthors([]);
+    setBookTitle('');
+    setShortDescription('');
+    setDescription('');
+    setCoverURL('https://www.linkpicture.com/q/book-na-1.jpg')
+    titleInputEl.current.focus();
+  }
+
+  function resetAlerts() {
+    setError('');
+    setSuccessMsg('');
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (!user) {
+      setError('You need to be logged in.')
+      // props.history.push('/login');
+      return;
+    }
 
     if (!bookTitle) {
       setError('Book title is required.')
       return;
     }
 
-    if (!favSubject) {
-      setError('FavSubject is required.')
-      return;
-    }
+    const selectedAuthorsArray = selectedAuthors.map((item) => item.value);
+    const selectedTagsArray = selectedTags.map((item) => item.value);
 
+    // sending a post request to create a book
     try {
-      const respose = await fetch('https://iifsd.herokuapp.com/studentss', {
+      const respose = await fetch('https://iifsd.herokuapp.com/books', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${user.jwt}`
         },
         body: JSON.stringify({
-          name: bookTitle,
-          favSubject: favSubject,
+          "book_title": bookTitle,
+          "book_short_description": shortDescription,
+          "book_description": description,
+          "cover_url": coverURL,
+          "authors": selectedAuthorsArray,
+          "tags": selectedTagsArray
         }),
       });
 
@@ -38,7 +76,10 @@ function Create() {
 
       const data = await respose.json();
 
+      // success
       console.log(data);
+      setSuccessMsg(`New book: ${data.book_title} with ID: ${data.id} created.`)
+      resetStates(); // empty all text boxes and focus to the book title
     } catch (error) {
       console.log(error);
       setError(error);
@@ -46,19 +87,35 @@ function Create() {
   }
 
   return (
-    <div className="page__create">
-      
-      ERR:{err && <p className="msg msg--error">{err.toString()}</p>}
-      <br />
-      USER: <p>{JSON.stringify(user)}</p>
-      
+    <div className="page__create container--no-flex">
 
-      <h1>Create a Book</h1>
+      <PageTitle title="Create A Book" subTitle="in the Open Library" />
+
+      {err && <Alert err msg={err.toString()} />}
+      {successMsg && <Alert msg={successMsg.toString()} />}
+      {!user && <Alert err msg='Anonymous users are not allowed to create a book. Please log in.' />}
+
       <form onSubmit={handleSubmit}>
-        <input placeholder="book title" value={bookTitle} onChange={(e) => { setError(''); setBookTitle(e.target.value)}} />
-        <input placeholder="fav subject" value={favSubject} onChange={(e) => { setError(''); setFavSubject(e.target.value) }} />
 
-        <button type="submit">Submit</button>
+        <label htmlFor="book-title">Book Title:</label>
+        <input ref={titleInputEl} type="text" id="book-title" placeholder="book title" value={bookTitle} onChange={(e) => {resetAlerts(); setBookTitle(e.target.value) }} />
+
+        <label htmlFor="book-short-description">Short Description:</label>
+        <input type="text" id="book-short-description" placeholder="short description" value={shortDescription} onChange={(e) => {resetAlerts(); setShortDescription(e.target.value) }} />
+
+        <label htmlFor="book-description">Description:</label>
+        <textarea
+          id="book-description"
+          placeholder="description" value={description} onChange={(e) => {resetAlerts(); setDescription(e.target.value) }} />
+
+        <label htmlFor="book-cover-url">Book cover URL:</label>
+        <input type="text" id="book-cover-url" placeholder="URL of the cover" value={coverURL} onChange={(e) => {resetAlerts(); setCoverURL(e.target.value) }} />
+
+        <AuthorsMultiSelect selectedAuthors={selectedAuthors} setSelectedAuthors={setSelectedAuthors} setError={setError} setSuccessMsg={setSuccessMsg} />
+
+        <TagsMultiSelect selectedTags={selectedTags} setSelectedTags={setSelectedTags} setError={setError} setSuccessMsg={setSuccessMsg} />
+
+        <button className="button button-primary" type="submit">Submit</button>
       </form>
     </div>
   )
