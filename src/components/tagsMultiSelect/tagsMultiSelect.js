@@ -6,6 +6,7 @@ export default function TagsMultiSelect({ selectedTags, setSelectedTags, setErro
 
   const [formattedTags, setFormattedTags] = useState([]);
   const [tagsLoading, setTagsLoading] = useState(true);
+
   const { user } = useContext(UserContext);
 
   useEffect(() => {
@@ -19,8 +20,12 @@ export default function TagsMultiSelect({ selectedTags, setSelectedTags, setErro
           return;
         }
 
+        // console.log('data', data);
 
         const formattedData = data.map((item) => ({ value: item.id, label: item.tag_name }))
+
+        // console.log('formatted data', formattedData);
+
         setFormattedTags(formattedData);
         setTagsLoading(false);
       } catch (err) {
@@ -37,14 +42,14 @@ export default function TagsMultiSelect({ selectedTags, setSelectedTags, setErro
     );
   };
 
-  const promiseOptions = (inputValue) =>
-    new Promise((resolve) => {
+  const promiseOptions = (inputValue) => {
+    console.log('inputValue ', inputValue);
+
+    return new Promise((resolve) => {
       setTimeout(() => {
         resolve(filterTags(inputValue));
       }, 0);
-    });
-
-
+    })}
 
   async function createTag(value) {
     try {
