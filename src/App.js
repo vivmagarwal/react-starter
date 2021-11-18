@@ -31,6 +31,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={ Home } />
           <Route path="/book/:id" exact component={ Detail } />
+          <Route path="/book/:id/edit" exact component={ Create } />
           <Route path="/list" component={ List } />
           <Route path="/create" component={ Create } />
           <Route path="/login" component={ Login } />
