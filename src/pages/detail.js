@@ -85,15 +85,17 @@ function Detail(props) {
               <SectionHeading section_title={book.book_title} />
               <BookDetail {...book} />
 
-              <div className="page-detail__admin-buttons container">
-                <button onClick={handleDelete} className="page-detail__delete-post button-danger">
-                  Delete this book
-                </button>
+              {user && (
+                <div className="page-detail__admin-buttons container">
+                  <button onClick={handleDelete} className="page-detail__delete-post button-danger">
+                    Delete this book
+                  </button>
 
-                <button onClick={handleEdit} className="page-detail__delete-post button-primary">
-                  Edit this book
-                </button>
-              </div>
+                  <button onClick={handleEdit} className="page-detail__delete-post button-primary">
+                    Edit this book
+                  </button>
+                </div>
+              )}
             </>
           )}
 

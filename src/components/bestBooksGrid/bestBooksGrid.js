@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
 import BestBookGridItem from "../bestBookGridItem/bestBookGridItem";
+import loading from '../../img/loading.gif';
 
 function BestBooksGrid() {
+
+  const [bookList, setBookList] = useState([]);
+
+  useEffect(() => {
+    fetch('https://iifsd.herokuapp.com/books')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setBookList(data);
+      })
+  }, [])
+
   return (
     <div className="best-books-grid">
       <div className="best-books-grid__container container">
@@ -10,18 +25,11 @@ function BestBooksGrid() {
         <div className="best-books-grid__content">
           <ul className="best-books-grid__grid">
 
-            <BestBookGridItem />
-            {/* <BestBookGridItem />
-            <BestBookGridItem />
-            <BestBookGridItem />
-            <BestBookGridItem />
-            <BestBookGridItem />
-            <BestBookGridItem />
-            <BestBookGridItem />
-            <BestBookGridItem />
-            <BestBookGridItem />
-            <BestBookGridItem />
-            <BestBookGridItem /> */}
+            
+            
+            {!bookList.length &&  <img src={loading} alt="loading..." />}
+
+            {bookList && bookList.length && bookList.map((book) => (<BestBookGridItem key={book.id} title={book.book_title} src={book.cover_url} />))}
 
           </ul>
         </div>

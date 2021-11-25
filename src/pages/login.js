@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import PageTitle from "../components/pageTitle/pageTitle";
 import { UserContext } from "../store/userContext";
 
 export default function Login(props) {
@@ -44,16 +45,18 @@ export default function Login(props) {
   }
 
   return (
-    <div>
+    <div className="page__login container--no-flex">
 
-      <h1>Login</h1>
+      <PageTitle title="Login" subTitle="we are excited to welcome you" />
       
       {error && <p className="msg msg--error">{error.toString()}</p>}
       
       <form onSubmit={handleSubmit}>
-        <input type="email" value={email} onChange={(e) => { setError(''); setEmail(e.target.value)}} />
-        <input type="password" value={password} onChange={(e) => { setError(''); setPassword(e.target.value)}} />
-        <button>Login</button>
+        <label htmlFor="login-email">Email ID:</label>
+        <input id="login-email" type="email" value={email} onChange={(e) => { setError(''); setEmail(e.target.value) }} />
+        <label htmlFor="login-pwd">Password:</label>
+        <input id="login-pwd" type="password" value={password} onChange={(e) => { setError(''); setPassword(e.target.value)}} />
+        <button className="button button-primary" type="submit">Login</button>
       </form>
     </div>
   )

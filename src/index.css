@@ -109,6 +109,16 @@ input[type='button'].button-danger {
   border-color: #dc3545;
 }  
 
+.button.button-hollow,
+button.button-hollow,
+input[type='submit'].button-hollow,
+input[type='reset'].button-hollow,
+input[type='button'].button-hollow {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
 .button:hover,
 button:hover,
 input[type='submit']:hover,
@@ -191,8 +201,12 @@ input[type='radio'] {
   display: inline;
 }
 
-input[autocomplete] {
+input[autocapitalize] {
   height: auto;
+}
+
+input {
+  -webkit-background-clip: text !important;
 }
 
 textarea::placeholder,
@@ -443,6 +457,8 @@ hr.rule {
 
 .site-header__signin {
   margin-right: 8px;
+  margin-bottom: 0;
+  margin-left: 8px;
 }
 
 .site-header__toggle-sidebar {
@@ -460,6 +476,8 @@ hr.rule {
   top: 0;
   transition: all 0.5s ease-in-out;
   z-index: 2;
+  padding-top: 1rem;
+  padding-left: 0.5rem;
 }
 
 .sidebar.active {
@@ -991,4 +1009,9 @@ hr.rule {
 /* book create page */
 .page__create input {
   width: 100%;
+}
+
+/* book detail */
+.page-detail__delete-post {
+  margin-right: 1rem;
 }

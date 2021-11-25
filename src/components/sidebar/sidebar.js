@@ -18,10 +18,10 @@ function Sidebar() {
 
         <nav>
           <ul>
-            <li> <Link to="/" >Home</Link> </li>
-            <li> <Link to="/list">List</Link> </li>
+            <li> <Link onClick={toggleSidebarVisibility} to="/" >Home</Link> </li>
+            <li> <Link onClick={toggleSidebarVisibility} to="/list">List</Link> </li>
             {user && 
-              <li> <Link to="/create">Create A Book</Link> </li>
+              <li> <Link onClick={toggleSidebarVisibility} to="/create">Create A Book</Link> </li>
             }
           </ul>
         </nav>
