@@ -32,14 +32,14 @@ function Header() {
           <div className='site-header__user-info'>
             {!user &&
               <>
-                <Link to={{pathname: '/login', state: { prevPath: location.pathname }}}  className="btn btn--hollow site-header__signin">Log In</Link>
-                <Link to="/signup" className="btn btn--hollow site-header__signin">Sign Up</Link>
+                <Link to={{pathname: '/login', state: { prevPath: location.pathname }}}  className="button button-hollow site-header__signin">Log In</Link>
+                <Link to="/signup" className="button button-hollow site-header__signin">Sign Up</Link>
               </>
             }
             { user &&
               <>
               <span> Hi, {user.user.username} </span>
-              <button className="btn btn--hollow site-header__signin" onClick={ logoutHandler } >Log out</button>
+              <button className="button-hollow site-header__signin" onClick={ logoutHandler } >Log out</button>
               </>
             }
             </div>
